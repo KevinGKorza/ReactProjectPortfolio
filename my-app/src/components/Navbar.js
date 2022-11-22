@@ -1,14 +1,20 @@
 import { Component } from "react";
+import { Menue } from "./Menue";
 
-class Navbar extends Component{
-    render(){
-        return(
+class Navbar extends Component {
+    render() {
+        return (
             <nav className="NavbarItems">
                 <h1>My Portfolio <i className="fa-brands fa-github"></i></h1>
                 <ul>
-                 <li>
-                <a href = "https://twitter.com/KevinGKorza">
-                 <i className="fa-regular fa-user"></i>About Me</a></li>
+                    {Menue.map((item, index) => {
+                        return (
+                            <li key={index}>
+                                <a href={item.url} className={item.cName}>
+                                    <i className={item.icon}></i>{item.title}</a></li>
+                        )
+                    })}
+
                 </ul>
             </nav>
         )
